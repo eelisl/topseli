@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Electricity Price Tracker & Sauna Time Recommender API
+  description: API endpoints for fetching electricity prices, sauna recommendations, and tracking electricity usage.
+paths:
+  /prices/today:
+    get:
+      summary: Retrieve today's hourly electricity prices
+      responses:
+        '200':
+          description: List of today's hourly electricity prices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    hour:
+                      type: integer
+                    price:
+                      type: number
+
+  /prices/tomorrow:
+    get:
+      summary: Retrieve tomorrow's hourly electricity prices
+      responses:
+        '200':
+          description: List of tomorrow's hourly electricity prices
+
+  /sauna-recommendation:
+    get:
+      summary: Suggest the best time to go to the sauna
+      responses:
+        '200':
+          description: Best time for sauna
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  time:
+                    type: string
+
+  /usage:
+    post:
+      summary: Add electricity usage data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                timeframe:
+                  type: string
+      responses:
+        '201':
+          description: Data added successfully
+    get:
+      summary: Retrieve all electricity usage and its cost
+      responses:
+        '200':
+          description: List of electricity usage and cost
+
+  /usage/{id
+}:
+    put:
+      summary: Edit a specific electricity usage datapoint
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID of the electricity usage datapoint
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                timeframe:
+                  type: string
+      responses:
+        '200':
+          description: Data updated successfully
+    delete:
+      summary: Delete a specific electricity usage datapoint
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID of the electricity usage datapoint
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Data deleted successfully
+
+components:
+  schemas:
+    ElectricityPrice:
+      type: object
+      properties:
+        hour:
+          type: integer
+        price:
+          type: number
+    SaunaRecommendation:
+      type: object
+      properties:
+        time:
+          type: string
+    ElectricityUsage:
+      type: object
+      properties:
+        amount:
+          type: number
+        timeframe:
+          type: string
