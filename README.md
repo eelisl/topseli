@@ -1,4 +1,4 @@
-# Electricity Price Tracker & Sauna Time Recommender
+# Töpseli - Electricity Price Tracker & Sauna Time Recommender
 
 An application that fetches hourly electricity prices, recommends the best time for a sauna session, and tracks electricity usage. It consists of a NodeJS backend and a React frontend.
 
@@ -16,6 +16,17 @@ An application that fetches hourly electricity prices, recommends the best time 
    - `PUT /usage/:id`: Edit a specific electricity usage datapoint.
    - `DELETE /usage/:id`: Delete a specific electricity usage datapoint.
 
+3. **Prisma ORM**:
+   - Uses Prisma ORM to interact with the PostgreSQL database.
+   - Uses Prisma Migrate to manage database migrations.
+
+4. **PostgreSQL Database**:
+   - Uses a PostgreSQL database to store electricity prices and electricity usage data.
+
+4. **Limitations**
+    - API is NOT production ready. It is currentyl only meant for localhost usage and testing purposes.
+    - API does not have any authentication or authorization.
+    - API does not have any input validation.
 ## Frontend Features
 
 1. **Electricity Price Visualization**:
@@ -40,11 +51,29 @@ An application that fetches hourly electricity prices, recommends the best time 
    ```bash
    npm install
    ```
-3. Configure the PostgreSQL connection in config.js.
-4. Run the backend server:
+3. Go to `/backend/db` directory and add DB_USER, DB_PASS, and DB_NAME environment variables to a .env file.
+4. Start the PostgreSQL container:
+    ```bash
+    docker-compose up -d
+    ```
+5. Run the migrations:
+   ```bash
+   npx prisma migrate deploy
+   ```
+6. Generate Prisma Client:
+    ```bash
+    npx prisma generate
+    ```
+7. Create new user in the database:
+    ```bash
+    node create user
+    ```
+6. Run the backend server:
     ```bash
     npm start
     ```
+
+**NOTE:** For more in-depth instructions on setting up the PostgreSQL database, please refer to the README.md file in the `/backend/db` directory.
 ### Frontend
 
 1. Navigate to the frontend directory.

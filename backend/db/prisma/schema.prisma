@@ -9,3 +9,26 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model HourlyPrice {
+  id        Int      @id @default(autoincrement())
+  time      DateTime
+  price     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ElectricityUsage {
+  id        Int      @id @default(autoincrement())
+  userId    Int // User ID to associate with the record
+  amount    Float // The amount of electricity used
+  timeframe DateTime // When the electricity was used
+  cost      Float // The cost of the used electricity
+  user      User     @relation(fields: [userId], references: [id]) // Relationship to the user
+}
+
+model User {
+  id                Int                @id @default(autoincrement())
+  username          String // The username
+  electricityUsages ElectricityUsage[] // Relationship to electricity usage records
+}
