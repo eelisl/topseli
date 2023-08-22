@@ -1,12 +1,12 @@
 import express, { Request, Response } from 'express';
+import * as energyUsageController from '../controllers/energyUsageController';
 import { energyUsageExists } from '../middleware/energyUsageExists';
 import { validateEnergyUsageRequest } from '../middleware/validateEnergyUsageRequest';
 
 const router = express.Router();
 
 // Get all energy usage data points
-router.get('/', (req: Request, res: Response) => {
-});
+router.get('/', energyUsageController.getAllEnergyUsage);
 
 // Create a new energy usage data point
 router.post('/', validateEnergyUsageRequest, (req: Request, res: Response) => {
