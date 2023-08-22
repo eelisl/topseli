@@ -8,13 +8,14 @@ An application that fetches hourly electricity prices, recommends the best time 
    - Fetches electricity prices from a public API every day at 15:00 and stores the data in a PostgreSQL database.
 
 2. **API Endpoints**:
-   - `GET /prices/today`: Retrieve today's hourly electricity prices.
-   - `GET /prices/tomorrow`: Retrieve tomorrow's hourly electricity prices.
-   - `GET /sauna-recommendation`: Suggest the best time to go to the sauna based on electricity prices. On weekends, the timeframe is 14-19, and on weekdays, it is 17-19.
-   - `POST /usage`: Add a new datapoint for the amount of electricity used at a specific time.
-   - `GET /usage/costs`: Retrieve all datapoints with electricity usage and its cost.
-   - `PUT /usage/:id`: Edit a specific electricity usage datapoint.
-   - `DELETE /usage/:id`: Delete a specific electricity usage datapoint.
+   - `GET /prices`: Retrieve all electricity prices.
+   - `GET /prices/today`: Retrieve today's hourly electricity prices. **WIP**
+   - `GET /prices/tomorrow`: Retrieve tomorrow's hourly electricity prices. **WIP**
+   - `GET /sauna/best-time`: Suggest the best time to go to the sauna based on electricity prices. On weekends, the timeframe is 14-19, and on weekdays, it is 17-19.
+   - `POST /usage`: Add a new datapoint for the amount of electricity used at a specific time. **WIP**
+   - `GET /usage/costs`: Retrieve all datapoints with electricity usage and its cost. **WIP**
+   - `PUT /usage/:id`: Edit a specific electricity usage datapoint. **WIP**
+   - `DELETE /usage/:id`: Delete a specific electricity usage datapoint. **WIP**
 
 3. **Prisma ORM**:
    - Uses Prisma ORM to interact with the PostgreSQL database.
@@ -37,7 +38,7 @@ An application that fetches hourly electricity prices, recommends the best time 
 2. **Sauna Time Recommendation**:
    - Show the best time to go to the sauna today and tomorrow based on electricity prices and specified timeframes.
 
-3. **User Interactions**:
+3. **User Interactions (WIP)**:
    - Allow the user to input the amount of electricity used and the timeframe it was used.
    - Display electricity usage as a list of cards showing the amount used, the timeframe, and the cost.
    - Provide the option to delete specific electricity usage datapoints.

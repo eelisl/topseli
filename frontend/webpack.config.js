@@ -13,6 +13,14 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader', // Inject styles into the HTML
+                    'css-loader',   // Translates CSS into CommonJS
+                    'sass-loader'   // Compiles Sass to CSS
+                ],
+            },
         ],
     },
     plugins: [
@@ -25,7 +33,6 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
-        static: path.join(__dirname, 'dist'),
         compress: true,
         port: 3000,
     },
