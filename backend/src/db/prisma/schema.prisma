@@ -12,7 +12,8 @@ datasource db {
 
 model HourlyPrice {
   id        Int      @id @default(autoincrement())
-  time      DateTime
+  rank      Int
+  datetime  DateTime
   price     Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
