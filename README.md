@@ -74,7 +74,7 @@ An application that fetches hourly electricity prices, recommends the best time 
     ```bash
     npm run createuser
     ```
-10 Run the backend server:
+10. Run the backend server:
     ```bash
     npm start
     ```
