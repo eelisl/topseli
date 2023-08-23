@@ -48,7 +48,7 @@ const SaunaTime = ({ chosenChart }: SaunaTimeProps) => {
     return (
         <div>
             <h1>SaunaTime</h1>
-            <p>Paras aika saunoa {chosenChart.toLowerCase()} ({weekDayMemoized}na) on {saunaTimeMemoized}!</p>
+            <p className="saunatime-text">Paras aika saunoa {chosenChart.toLowerCase()} ({weekDayMemoized}na) on {saunaTimeMemoized}!</p>
         </div>
     )
 }

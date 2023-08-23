@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Chart from './components/Chart';
 import SaunaTime from './components/SaunaTime';
 import TimePicker from './components/TimePicker';
-import './styles/index.scss';
+// import './styles/index.scss';
 import { BACKEND_URL } from './utils';
 
 export interface HourlyPrice {
@@ -95,7 +95,7 @@ const App: React.FC = () => {
     }
 
     return (
-        <div>
+        <div className="app">
             <h1>Töpseli</h1>
             <p>Katso sähkötietoja ja paras aika saunoa!</p>
             <TimePicker tomorrowDisabled={hourlyPrices.tomorrow?.length <= 0} handleChange={handleChosenChart} />

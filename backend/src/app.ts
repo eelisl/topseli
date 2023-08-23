@@ -1,6 +1,6 @@
 import cors from 'cors';
 import express from 'express';
-import { cronFetchPrices } from './helpers/cronJob';
+import { cronFetchPrices, fetchPricePerHour } from './helpers/cronJob';
 import routes from './routes';
 
 const app = express();
@@ -14,6 +14,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+fetchPricePerHour();
 cronFetchPrices();
 app.use('/api', routes);
 

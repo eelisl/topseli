@@ -11,7 +11,7 @@ export const getBestTime = async (req: Request, res: Response) => {
         const dateString = req.query.date;
 
         const date = new Date(dateString as string);
-        const weekdaynumber = date.getDay();
+        const weekdaynumber = date.getUTCDay();
         const isWeekend = weekdaynumber === 0 || weekdaynumber === 6;
 
         // Set the time to the start of the day

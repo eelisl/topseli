@@ -7,6 +7,9 @@
     "start": "node dist/app.js",
     "dev": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/app.ts",
     "build": "tsc",
+    "test": "jest",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "create user": "node dist/db/prisma/scripts/createUser.js"
   },
   "author": "",
