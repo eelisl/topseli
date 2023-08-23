@@ -92,6 +92,17 @@ An application that fetches hourly electricity prices, recommends the best time 
     npm start
     ```
 
+## Roadmap
+
+Additional features that are planned to be implemented in the future:
+
+- [ ] Add authentication and authorization to the API.
+- [ ] Add input validation to the API.
+- [ ] Add input validation to the frontend.
+- [ ] Add the ability to add new electricity usage datapoints.
+- [ ] Add the ability to view electricity usage as a list of cards.
+- [ ] Add the ability to edit and delete electricity usage datapoints.
+- [ ] React Native mobile app
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
