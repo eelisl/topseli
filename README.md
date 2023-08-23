@@ -53,23 +53,28 @@ An application that fetches hourly electricity prices, recommends the best time 
    npm install
    ```
 3. Go to `/backend/db` directory and add DB_USER, DB_PASS, and DB_NAME environment variables to a .env file.
-4. Start the PostgreSQL container:
+4. Add DATABASE_URL in the same .env file, which should be as follows: `postgresql://<DB_USER>:<DB_PASS>@localhost:5432/<DB_NAME>`
+5. Start the PostgreSQL container:
     ```bash
     docker-compose up -d
     ```
-5. Run the migrations:
+6. Run the migrations:
    ```bash
    npx prisma migrate deploy
    ```
-6. Generate Prisma Client:
+7. Generate Prisma Client:
     ```bash
     npx prisma generate
     ```
-7. Create new user in the database:
+8. Build the backend:
     ```bash
-    node create user
+    npm run build
     ```
-6. Run the backend server:
+9. Create new user in the database:
+    ```bash
+    npm run createuser
+    ```
+10 Run the backend server:
     ```bash
     npm start
     ```
@@ -82,8 +87,7 @@ An application that fetches hourly electricity prices, recommends the best time 
    ```bash
    npm install
    ```
-3. Update the backend API endpoint in config.js.
-4. Run the frontend server:
+3. Run the frontend server:
     ```bash
     npm start
     ```

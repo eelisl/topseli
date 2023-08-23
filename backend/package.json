@@ -10,7 +10,7 @@
     "test": "jest",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "create user": "node dist/db/prisma/scripts/createUser.js"
+    "createuser": "node dist/db/prisma/scripts/createUser.js"
   },
   "author": "",
   "license": "ISC",
