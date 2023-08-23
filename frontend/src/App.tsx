@@ -4,6 +4,7 @@ import Chart from './components/Chart';
 import SaunaTime from './components/SaunaTime';
 import TimePicker from './components/TimePicker';
 import './styles/index.scss';
+import { BACKEND_URL } from './utils';
 
 export interface HourlyPrice {
     id: number;
@@ -44,7 +45,7 @@ const App: React.FC = () => {
 
     useEffect(() => {
         const fetchHourlyPrices = async () => {
-            const response = await axios.get('http://localhost:4000/api/prices/');
+            const response = await axios.get(BACKEND_URL + '/api/prices/');
             return response.data;
         }
 

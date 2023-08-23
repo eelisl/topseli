@@ -16,6 +16,7 @@ COPY . .
 # Generate Prisma Client
 RUN npx prisma generate --schema /usr/src/app/src/db/prisma/schema.prisma
 
+RUN npm run build
 # Expose the port the app runs on
 EXPOSE 3000
 

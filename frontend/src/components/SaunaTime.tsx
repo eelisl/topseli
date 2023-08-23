@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
+import { BACKEND_URL } from '../utils';
 
 interface SaunaTimeProps {
     chosenChart: "Tänään" | "Huomenna";
@@ -25,7 +26,7 @@ const SaunaTime = ({ chosenChart }: SaunaTimeProps) => {
         const fetchSaunaTime = async () => {
             try {
                 const date = chosenChart === 'Tänään' ? new Date() : new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-                const response = await axios.get(`http://localhost:4000/api/sauna/best-time?date=${date}`);
+                const response = await axios.get(BACKEND_URL + `/api/sauna/best-time?date=${date}`);
                 return response.data;
             } catch (error) {
                 console.log(error);

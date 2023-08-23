@@ -1,6 +1,17 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv');
 
+// Read the .env file
+const env = dotenv.config().parsed;
+
+// Reduce the env variables to a nice object that webpack can use
+const envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+}, {});
+console.log(envKeys);
 module.exports = {
     entry: './src/index.tsx',
     resolve: {
@@ -27,6 +38,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
         }),
+        new webpack.DefinePlugin(envKeys),
     ],
     output: {
         filename: 'bundle.js',
